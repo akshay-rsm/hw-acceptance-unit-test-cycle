@@ -1,0 +1,10 @@
+-# This file is app/views/movies/same_director_movies.html.haml
+%h2 Movies by #{@movie.director}
+
+%ul
+  -@movies.each do |movie|
+    %li= movie.title
+    
+= link_to "Home", movies_path
+
+  
