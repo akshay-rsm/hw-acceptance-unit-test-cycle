@@ -32,3 +32,27 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+  
+Scenario: Delete a movie
+  When I go to the details page for "Alien"
+  And I press "Delete"
+  Then I should be on the home page
+  And I should see "Movie 'Alien' deleted"
+
+Scenario: Delete a movie
+  When I go to the details page for "Alien"
+  And I press "Delete"
+  Then I should be on the home page
+  And I should see "Movie 'Alien' deleted"
+  
+Scenario: Add a movie
+  Given I am on the home page
+  When I follow "Add new movie"
+  And I fill in "Title" with "Jurrassic Park"
+  And I select "PG-13" from "Rating"
+  #And I choose "2001-07-16" in "Released On"
+  And I fill in "Director" with "Steven Spielberg"
+  And I press "Save Changes"
+  Then I should be on the home page
+  And I should see "Jurrassic Park was successfully created"
+  
